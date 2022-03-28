@@ -13,10 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author alexa
+ * @author Valued Customer
  */
 public class UserServlet extends HttpServlet {
-
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -28,16 +27,19 @@ public class UserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            UserService service = new UserService();
-
-            try {
-                List<User> users = service.getAll();
-                request.setAttribute("users", users);
-                this.getServletContext().getRequestDispatcher("/WEB-INF/users.jsp").forward(request, response);
-            } catch (Exception ex) {
-                Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
+        UserService service = new UserService();
+        
+        try {
+            List<User> users = service.getAll();
+            
+            request.setAttribute("users", users);
+            
+            this.getServletContext().getRequestDispatcher("/WEB-INF/users.jsp").forward(request, response);
+        } catch (Exception ex) {
+            Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
     }
 
     /**
@@ -51,7 +53,5 @@ public class UserServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
     }
-
 }

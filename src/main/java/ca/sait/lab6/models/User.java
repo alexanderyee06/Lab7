@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * Represents a user
- * @author alexa
+ * @author Nick Hamnett
  */
 public class User implements Serializable {
     private String email;
@@ -13,10 +13,11 @@ public class User implements Serializable {
     private String lastName;
     private String password;
     private Role role;
-
+    
     public User() {
-
+        
     }
+    
     public User(String email, boolean active, String firstName, String lastName, String password, Role role) {
         this.email = email;
         this.active = active;
@@ -24,8 +25,8 @@ public class User implements Serializable {
         this.lastName = lastName;
         this.password = password;
         this.role = role;
-    }   
-
+    }
+    
     public String getEmail() {
         return email;
     }
